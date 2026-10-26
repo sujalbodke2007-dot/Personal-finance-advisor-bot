@@ -1,0 +1,402 @@
+PERSONAL FINANCE ADVISOR BOT
+Project Documentation
+
+Project Title: Personal Finance Advisor Bot
+Technology Stack: Python, Flask, SQLite, SQLAlchemy, Google Gemini AI, HTML, CSS, JavaScript
+Project Repository: https://github.com/sujalbodke2007-dot/Personal-finance-advisor-bot
+
+Submitted by: ____________________
+Roll Number: ____________________
+Department: ____________________
+Institution: ____________________
+Academic Year: 2026–2027
+
+ABSTRACT
+
+The Personal Finance Advisor Bot is an intelligent financial planning application designed to help users understand their income, monitor expenses, prepare monthly budgets, and develop better saving habits. The application combines a web-based user interface with a Python Flask backend, SQLite database storage, and optional Google Gemini AI integration.
+
+Users can enter their monthly income, categorize expenses, specify financial goals, and obtain budget recommendations and spending insights. The application also supports saving suggestions, financial summaries, and expense history. When AI services are unavailable or not configured, a rule-based fallback can support the core financial planning workflow.
+
+The primary objective of this project is to make basic financial planning more accessible through a simple, interactive, and technology-driven platform.
+
+CHAPTER 1: INTRODUCTION
+1.1 Introduction
+
+Managing personal finances is an important part of everyday life. Individuals need to balance income, expenses, savings, and future financial goals. However, manual budgeting can be time-consuming and may not provide sufficient insight into spending patterns.
+
+The Personal Finance Advisor Bot addresses this problem by providing a centralized application for entering financial information and generating useful budgeting insights. It uses conventional software technologies and optional artificial intelligence to assist users in making informed financial decisions.
+
+1.2 Problem Statement
+
+Many individuals struggle to track daily expenses, control unnecessary spending, set realistic savings targets, and prepare monthly budgets. Traditional methods such as notebooks and spreadsheets require manual calculations and consistent maintenance.
+
+A digital application that organizes financial data and provides personalized guidance can simplify these activities.
+
+1.3 Objectives
+Develop a web-based personal finance management application.
+Track monthly income and categorized expenses.
+Generate personalized monthly budget suggestions.
+Analyze spending patterns and identify areas for improvement.
+Provide saving suggestions based on financial goals.
+Store financial reports using a database.
+Integrate AI-powered financial insights where configured.
+Provide a rule-based fallback when AI is unavailable.
+Offer optional Google Sheets integration for additional tracking.
+1.4 Scope
+
+The project focuses on personal budgeting and basic financial awareness. It supports income entry, expense categorization, budget generation, savings guidance, and financial reporting.
+
+The application is intended for educational and personal planning purposes. It is not a banking platform, tax filing system, or professional investment advisory service.
+
+CHAPTER 2: EXISTING AND PROPOSED SYSTEM
+2.1 Existing System
+
+Traditional financial management methods commonly involve handwritten records, calculators, or spreadsheets. These methods may require repeated manual calculations and can make it difficult to identify spending trends quickly.
+
+2.2 Proposed System
+
+The proposed system provides a digital interface for entering financial information and obtaining structured financial insights. It combines data storage, automated analysis, and optional AI-generated recommendations.
+
+2.3 Advantages
+Centralized financial information.
+Faster budget preparation.
+Organized expense categories.
+Personalized saving suggestions.
+Easier review of monthly financial summaries.
+Reduced dependence on manual calculations.
+Optional AI integration and rule-based fallback functionality.
+CHAPTER 3: SYSTEM REQUIREMENTS
+3.1 Hardware Requirements
+
+The repository recommends the following development environment:
+
+Processor: Intel Core i5, 8th generation or above, AMD Ryzen 5, or equivalent.
+RAM: Minimum 8 GB; 16 GB recommended.
+Storage: At least 256 GB SSD or 500 GB HDD.
+Internet: Stable internet connection for online AI and cloud integrations.
+3.2 Software Requirements
+Operating System: Windows 10/11, macOS, or Linux.
+Programming Language: Python.
+Backend Framework: Flask.
+Database: SQLite.
+ORM: SQLAlchemy.
+Frontend: HTML, CSS, and JavaScript.
+AI Integration: Google Gemini API.
+Code Editor: Visual Studio Code or an equivalent IDE.
+Browser: Google Chrome, Mozilla Firefox, or Microsoft Edge.
+Version Control: Git.
+3.3 Functional Requirements
+Accept monthly income and expense information.
+Organize expenses by category.
+Analyze spending information.
+Generate budget recommendations.
+Provide saving suggestions.
+Support financial goal descriptions.
+Generate financial summaries and reports.
+Store application records in SQLite.
+Support optional AI-powered analysis.
+Support optional Google Sheets synchronization.
+3.4 Non-Functional Requirements
+Usability: The interface should be straightforward to operate.
+Reliability: Invalid input and unavailable external services should be handled appropriately.
+Performance: Common financial calculations should complete efficiently.
+Maintainability: The application should use modular and understandable code.
+Security: API keys and financial information should be handled carefully.
+Compatibility: The application should operate in supported modern web browsers.
+CHAPTER 4: SYSTEM ARCHITECTURE
+4.1 Architecture Overview
+
+The application follows a web-based client-server architecture.
+
+The browser provides the user interface. JavaScript sends requests to the Flask backend using asynchronous HTTP requests. The backend validates input, prepares financial analysis requests, interacts with the database, and optionally communicates with Gemini AI.
+
+SQLite provides local persistence through SQLAlchemy. Google Sheets can serve as an optional external tracking layer. A rule-based fallback supports core features when AI integration is unavailable.
+
+4.2 Architecture Flow
+
+User
+↓
+Web Interface (HTML, CSS, JavaScript)
+↓
+Flask Backend
+↓
+Input Validation and Financial Processing
+↓
+SQLite Database through SQLAlchemy
+↓
+Gemini AI Integration, when configured
+↓
+Rule-Based Fallback, when required
+↓
+Budget, Analysis, Suggestions, and Summary
+↓
+Results displayed to the user
+
+Google Sheets synchronization is an optional integration.
+
+4.3 Main Components
+
+Frontend: Provides forms, financial input fields, and result displays.
+
+Flask Backend: Handles routes, request processing, validation, and financial analysis.
+
+Database Layer: Uses SQLAlchemy and SQLite for local data persistence.
+
+AI Layer: Uses the Google GenAI Python SDK to generate financial insights when configured.
+
+Fallback Layer: Provides rule-based financial planning functionality without requiring an AI API key.
+
+Cloud Integration: Optionally sends tracking data to Google Sheets through Google Apps Script.
+
+CHAPTER 5: MODULE DESCRIPTION
+5.1 Income Management
+
+This module accepts the user's monthly income. The income value is used as an input for budgeting and financial analysis.
+
+5.2 Expense Management
+
+Users can organize spending into categories such as rent, food, transportation, dining, entertainment, and utilities. Expense logs can also represent spending recorded over different periods.
+
+5.3 Budget Generation
+
+The budget module uses the supplied income, expenses, and financial goals to produce a structured budget recommendation. Recommendations depend on the application's configured analysis logic.
+
+5.4 Spending Analysis
+
+The analysis module examines the supplied financial data to identify spending patterns and potential areas for improvement.
+
+5.5 Saving Suggestions
+
+This module generates suggestions intended to help users reduce unnecessary spending and work toward their savings goals.
+
+5.6 Financial Reporting
+
+The application can produce monthly financial summaries and reports. Database persistence enables report records to be retained locally.
+
+5.7 Artificial Intelligence Integration
+
+The Gemini integration can generate natural-language financial insights. The model and API key are configurable through environment settings.
+
+5.8 Rule-Based Fallback
+
+When Gemini is not configured or AI access is unavailable, the application can continue supporting core workflows through local rule-based logic. The interface identifies this mode as Rule-Based or Demo mode.
+
+5.9 Google Sheets Integration
+
+An optional Google Apps Script template is provided for connecting the application to a Google Sheet. This integration requires deployment and configuration of the corresponding webhook URL.
+
+CHAPTER 6: TECHNOLOGY STACK
+6.1 Python
+
+Python is the primary backend programming language. It supports application logic, data processing, and communication with external services.
+
+6.2 Flask
+
+Flask handles HTTP requests, application routes, and communication between the frontend and backend.
+
+6.3 SQLite
+
+SQLite is a lightweight relational database used for local data storage.
+
+6.4 SQLAlchemy
+
+SQLAlchemy provides an object-relational mapping layer for database operations.
+
+6.5 HTML, CSS, and JavaScript
+
+HTML defines the interface structure, CSS controls presentation and responsiveness, and JavaScript handles interactive behavior and asynchronous requests.
+
+6.6 Google Gemini AI
+
+Gemini provides optional AI-powered analysis and financial suggestions through Google's GenAI SDK.
+
+6.7 Google Apps Script
+
+Google Apps Script supports optional integration with Google Sheets for cloud-based tracking.
+
+CHAPTER 7: DATABASE AND API DESIGN
+7.1 Database
+
+The project uses SQLite with SQLAlchemy. Database models and field definitions should be verified against the actual implementation in app.py before preparing a formal database schema.
+
+The database layer is intended to preserve financial report information locally.
+
+7.2 Health Endpoint
+
+Endpoint: GET /api/health
+
+Purpose: Returns application, database, and AI configuration status.
+
+7.3 Financial Analysis Endpoint
+
+Endpoint: POST /analyse
+
+Purpose: Accepts financial information and returns structured analysis.
+
+Example request:
+
+json
+{
+  "income": 50000,
+  "goal": "emergency fund",
+  "expenses": {
+    "rent": 12000,
+    "food": 6000,
+    "transport": 3000,
+    "dining": 2000,
+    "entertainment": 1500,
+    "utilities": 3000,
+    "savings": 5000
+  },
+  "expense_logs": []
+}
+
+
+The response can contain a success indicator, analysis source, budget information, spending analysis, saving suggestions, summary, report identifier, and cloud synchronization status.
+
+7.4 Generation Endpoint
+
+Endpoint: POST /generate
+
+Purpose: Supports focused financial questions and compatible generation requests. The repository documentation indicates that it accepts either question or product_info.
+
+CHAPTER 8: INSTALLATION AND EXECUTION
+8.1 Download the Project
+
+Clone the repository:
+
+bash
+git clone https://github.com/sujalbodke2007-dot/Personal-finance-advisor-bot.git
+
+
+Navigate into the project directory:
+
+bash
+cd Personal-finance-advisor-bot
+
+8.2 Create a Virtual Environment
+bash
+python -m venv venv
+
+
+On Windows:
+
+bash
+venv\Scripts\activate
+
+
+On macOS or Linux:
+
+bash
+source venv/bin/activate
+
+8.3 Install Dependencies
+bash
+pip install -r requirements.txt
+
+8.4 Configure Environment Variables
+
+Create a .env file using .env.example as a reference. Add the Gemini API key and any optional integration settings required by the application.
+
+Never publish API keys or other secrets in a public repository.
+
+8.5 Run the Application
+bash
+python app.py
+
+
+Open the following address in a browser:
+
+http://127.0.0.1:5000
+
+The exact startup behavior depends on the current application configuration.
+
+CHAPTER 9: TESTING
+
+Testing should verify the main application workflows before deployment.
+
+9.1 Functional Test Cases
+
+Test Case 1: Valid Income Input
+Input: A positive monthly income.
+Expected result: The application accepts the value for financial analysis.
+
+Test Case 2: Expense Categorization
+Input: Valid expense values across multiple categories.
+Expected result: Expenses are processed and represented in the analysis.
+
+Test Case 3: Budget Generation
+Input: Income, expenses, and a financial goal.
+Expected result: A structured budget recommendation is returned.
+
+Test Case 4: Saving Suggestions
+Input: Financial information and a savings goal.
+Expected result: Saving suggestions are included in the results.
+
+Test Case 5: AI Integration
+Input: Valid data with a configured Gemini API key.
+Expected result: AI analysis is returned when the service is available.
+
+Test Case 6: Fallback Mode
+Input: Valid data without usable AI access.
+Expected result: Supported core functionality continues using the rule-based fallback.
+
+Test Case 7: Database Persistence
+Input: A financial analysis request.
+Expected result: Applicable report information is saved and can be retrieved as implemented.
+
+Test Case 8: Invalid Input
+Input: Missing, malformed, or negative financial values.
+Expected result: Invalid data is rejected or handled safely according to the application's validation rules.
+
+Note: These are proposed test cases. Actual execution results and screenshots should be added after testing the application.
+
+CHAPTER 10: SECURITY AND LIMITATIONS
+10.1 Security Considerations
+Store API keys in environment variables.
+Exclude .env files from version control.
+Validate incoming data on the server.
+Avoid logging unnecessary sensitive financial information.
+Protect public deployments with appropriate security controls.
+Use secure HTTPS connections for public access.
+Review authentication and access controls before storing real user data.
+10.2 Limitations
+AI-generated suggestions may not always be accurate.
+AI features depend on API availability and configuration.
+Rule-based recommendations may be less flexible than AI-generated insights.
+The application should not be assumed to provide bank-grade financial management or security.
+Optional Google Sheets synchronization requires additional configuration.
+Authentication and multi-user access should be verified before use in a shared production environment.
+CHAPTER 11: FUTURE ENHANCEMENTS
+
+Potential improvements include:
+
+User registration and secure authentication.
+Interactive monthly spending charts.
+Expense forecasting and predictive analytics.
+Savings goal progress tracking.
+Household and shared budgeting.
+Exportable PDF and Excel reports.
+Notifications for budget limits.
+Multi-month financial health analysis.
+Improved accessibility and mobile interface design.
+Enhanced validation, automated tests, and deployment monitoring.
+CHAPTER 12: CONCLUSION
+
+The Personal Finance Advisor Bot demonstrates how web development, database technology, and artificial intelligence can be combined to support everyday financial planning.
+
+The application provides a foundation for tracking income and expenses, generating budgets, analyzing spending, and producing savings suggestions. Its use of Flask, SQLite, SQLAlchemy, and optional Gemini AI integration makes it suitable as an educational software project.
+
+The rule-based fallback improves usability when AI services are unavailable. Future development can strengthen the system through enhanced security, user authentication, predictive analytics, visualization, and more advanced reporting.
+
+Overall, the project illustrates the potential of intelligent software to make personal budgeting more organized, accessible, and informative.
+
+REFERENCES
+Project Repository: https://github.com/sujalbodke2007-dot/Personal-finance-advisor-bot
+Python Documentation: https://docs.python.org/3/
+Flask Documentation: https://flask.palletsprojects.com/
+SQLAlchemy Documentation: https://docs.sqlalchemy.org/
+Google GenAI SDK Documentation: https://googleapis.github.io/python-genai/
+SQLite Documentation: https://www.sqlite.org/docs.html
+
+END OF DOCUMENTATION
